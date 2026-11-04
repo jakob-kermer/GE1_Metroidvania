@@ -4,16 +4,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Rigidbody rb;
+
     // Input
+    [Header("Input actions")]
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
 
-    [SerializeField] private Rigidbody rb;
-
     // Movement
+    [Header("Movement speed")]
     [SerializeField] private float speed;
     // Jump logic
+    [Header("Jump stats")]
     [SerializeField] private float jumpForce;
+    [SerializeField] private float doubleJumpForce;
+    // Raycast
+    [Header("Ground checking raycast")]
     [SerializeField] private float groundCheckDistance = 1.1f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool canDoubleJump;
@@ -46,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             // if yes, enable double jumping again
             canDoubleJump = true;
         }
-        
+
         // movement
         Move();
     }
@@ -78,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         else if (context.performed && canDoubleJump)
         {
             // ...jump anyway (in the air) and then disable double jumping 
-            Jump();
+            DoubleJump();
             canDoubleJump = false;
         }
     }
@@ -87,6 +93,12 @@ public class PlayerMovement : MonoBehaviour
     {
         // add upwards force to jump
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void DoubleJump()
+    {
+        // add upwards force to jump
+        rb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
     }
 
     private bool IsGrounded()
