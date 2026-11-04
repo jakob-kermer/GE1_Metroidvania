@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float groundCheckDistance = 1.1f;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private bool canDoubleJump;
 
     void OnEnable()
     {
@@ -51,7 +53,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed && IsGrounded())
+        {
             Jump();
+        }
+        else if (context.performed && canDoubleJump)
+        {
+            Jump();
+        }
     }
 
     private void Jump()
