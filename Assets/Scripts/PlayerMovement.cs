@@ -4,13 +4,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Rigidbody rb;
+
+    // Input
+    [Header("Input actions")]
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
 
-    [SerializeField] private Rigidbody rb;
+    // Movement
+    [Header("Movement speed")]
     [SerializeField] private float speed;
     // Jump logic
+    [Header("Jump stats")]
     [SerializeField] private float jumpForce;
+    [SerializeField] private float doubleJumpForce;
+    // Raycast
+    [Header("Ground checking raycast")]
     [SerializeField] private float groundCheckDistance = 1.1f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool canDoubleJump;
@@ -37,12 +46,25 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // write speed on the console
-        // Debug.Log($"{speed}... I am {speed}");
+        // check every frame if the character is grounded
+        if (IsGrounded())
+        {
+            // if yes, enable double jumping again
+            canDoubleJump = true;
+        }
 
-        // movement with move action
+        // movement
+        Move();
+    }
+
+    // Movement
+    private void Move()
+    {
+        // movement with "move" input action
+        // create 2D input vector depending on input
         var input = move.action.ReadValue<Vector2>().normalized;
 
+        // set character velocity depending on input, but only left and right (x-axis), y and z
         rb.linearVelocity = new Vector3(
             input.x * speed,
             rb.linearVelocity.y,
@@ -52,19 +74,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
+        // if the "jump" input action is performed and the character is grounded...
         if (context.performed && IsGrounded())
         {
+            // ...jump
             Jump();
         }
+        // if the character is not grounded but can double jump...
         else if (context.performed && canDoubleJump)
         {
-            Jump();
+            // ...jump anyway (in the air) and then disable double jumping 
+            DoubleJump();
+            canDoubleJump = false;
         }
     }
 
     private void Jump()
     {
+        // add upwards force to jump
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void DoubleJump()
+    {
+        // add upwards force to jump
+        rb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
     }
 
     private bool IsGrounded()
@@ -75,5 +109,11 @@ public class PlayerMovement : MonoBehaviour
             groundCheckDistance,
             groundLayer
         );
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = IsGrounded() ? Color.green : Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundCheckDistance);
     }
 }

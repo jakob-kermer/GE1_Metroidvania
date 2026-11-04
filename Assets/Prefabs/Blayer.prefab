@@ -376,7 +376,7 @@ CapsuleCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -422,11 +422,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1528053b1fcfa364ab116507d4e8fe01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  rb: {fileID: 3817140577183146646}
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  rb: {fileID: 3817140577183146646}
-  speed: 5
-  jumpForce: 10
+  speed: 7
+  jumpForce: 15
+  doubleJumpForce: 12
   groundCheckDistance: 1.1
   groundLayer:
     serializedVersion: 2
