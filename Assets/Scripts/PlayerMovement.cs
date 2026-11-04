@@ -8,7 +8,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
+    // Jump logic
     [SerializeField] private float jumpForce;
+    [SerializeField] private float groundCheckDistance = 1.1f;
+    [SerializeField] private LayerMask groundLayer;
 
     void OnEnable()
     {
@@ -47,13 +50,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        Debug.Log("jump pressed");
-        Jump();
+        if (context.performed && IsGrounded())
+            Jump();
     }
 
     private void Jump()
     {
-        // add upwards force to jump
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(
+            transform.position,
+            Vector3.down,
+            groundCheckDistance,
+            groundLayer
+        );
     }
 }
