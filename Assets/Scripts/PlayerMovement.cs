@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Fields
     [SerializeField] private Rigidbody rb;
 
     // Input
@@ -14,15 +15,18 @@ public class PlayerMovement : MonoBehaviour
     // Movement
     [Header("Movement speed")]
     [SerializeField] private float speed;
+    
     // Jump logic
     [Header("Jump stats")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float doubleJumpForce;
+    [SerializeField] private bool doubleJumpUnlocked;
+    [SerializeField] private bool canDoubleJump;
+
     // Raycast
     [Header("Ground checking raycast")]
     [SerializeField] private float groundCheckDistance = 1.1f;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private bool canDoubleJump;
 
     void OnEnable()
     {
@@ -80,8 +84,8 @@ public class PlayerMovement : MonoBehaviour
             // ...jump
             Jump();
         }
-        // if the character is not grounded but can double jump...
-        else if (context.performed && canDoubleJump)
+        // if the character is not grounded but has the double jump unlocked...
+        else if (doubleJumpUnlocked && context.performed && canDoubleJump)
         {
             // ...jump anyway (in the air) and then disable double jumping 
             DoubleJump();
@@ -97,6 +101,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void DoubleJump()
     {
+        // set upwards velocity to 0 to make the second jump uniform and independent from previous velocity
+        rb.linearVelocity = new Vector3(
+            rb.linearVelocity.x,
+            0,
+            rb.linearVelocity.z
+        );
         // add upwards force to jump
         rb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
     }
