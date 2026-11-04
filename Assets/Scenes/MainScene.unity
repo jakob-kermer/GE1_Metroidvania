@@ -1406,6 +1406,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5780169091077155421, guid: dcbdcde57c42b024daeb4c55f4252234, type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8486042749050402055, guid: dcbdcde57c42b024daeb4c55f4252234, type: 3}
       propertyPath: m_Name
       value: Blayer

@@ -4,10 +4,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Input
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
 
     [SerializeField] private Rigidbody rb;
+
+    // Movement
     [SerializeField] private float speed;
     // Jump logic
     [SerializeField] private float jumpForce;
@@ -37,9 +40,17 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // write speed on the console
-        // Debug.Log($"{speed}... I am {speed}");
+        if (IsGrounded())
+        {
+            canDoubleJump = true;
+        }
+        
+        Move();
+    }
 
+    // Movement
+    private void Move()
+    {
         // movement with move action
         var input = move.action.ReadValue<Vector2>().normalized;
 
@@ -59,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         else if (context.performed && canDoubleJump)
         {
             Jump();
+            canDoubleJump = false;
         }
     }
 
@@ -75,5 +87,11 @@ public class PlayerMovement : MonoBehaviour
             groundCheckDistance,
             groundLayer
         );
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = IsGrounded() ? Color.green : Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundCheckDistance);
     }
 }
