@@ -1554,6 +1554,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3817140577183146646, guid: dcbdcde57c42b024daeb4c55f4252234, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780169091077155421, guid: dcbdcde57c42b024daeb4c55f4252234, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780169091077155421, guid: dcbdcde57c42b024daeb4c55f4252234, type: 3}
+      propertyPath: jumpForce
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780169091077155421, guid: dcbdcde57c42b024daeb4c55f4252234, type: 3}
+      propertyPath: doubleJumpForce
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780169091077155421, guid: dcbdcde57c42b024daeb4c55f4252234, type: 3}
+      propertyPath: doubleJumpUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8486042749050402055, guid: dcbdcde57c42b024daeb4c55f4252234, type: 3}
       propertyPath: m_Name
       value: Blayer
