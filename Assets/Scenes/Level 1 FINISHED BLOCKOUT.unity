@@ -77095,6 +77095,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &2115581915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8347607678650007039, guid: fe2efb31b30cf0949a9647a29ba25580, type: 3}
+  m_PrefabInstance: {fileID: 6023411896330025822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2115581918 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3347111911921302847, guid: fe2efb31b30cf0949a9647a29ba25580, type: 3}
@@ -78213,6 +78218,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2115581918}
+    - target: {fileID: 5898557532507554097, guid: fe2efb31b30cf0949a9647a29ba25580, type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 2115581915}
     - target: {fileID: 6813710244822404659, guid: fe2efb31b30cf0949a9647a29ba25580, type: 3}
       propertyPath: m_Constraints
       value: 120

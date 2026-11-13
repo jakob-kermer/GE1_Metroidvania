@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     // Animator 
     [SerializeField] private Animator animator; 
 
+    // Player Model
+    [SerializeField] private GameObject playerModel;
+
     private void OnEnable()
     {
         // enable input actions
@@ -92,6 +95,16 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsRunning", false); 
         }
+
+        if (input.x < 0)
+        {
+            playerModel.transform.rotation = Quaternion.LookRotation(input);
+        }
+        if (input.x > 0)
+        {
+            playerModel.transform.rotation = Quaternion.LookRotation(input);
+        }
+
     }
 
     private void OnJump(InputAction.CallbackContext context)
