@@ -3349,6 +3349,9 @@ MonoBehaviour:
   - rid: 7878077927868596800
   - rid: 7878077927868596801
   - rid: 7878077927868596802
+  - rid: 7878078082222915828
+  - rid: 7878078082222915829
+  - rid: 7878078082222916163
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -3378,7 +3381,7 @@ MonoBehaviour:
           m_Value0: 3590862647103139714
           m_Value1: 4175421197340876610
         Name: Chase Distance
-        m_Value: 10
+        m_Value: 5
     - rid: 7878077927868596801
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -3397,6 +3400,30 @@ MonoBehaviour:
         m_Value:
         - {fileID: 759954960}
         - {fileID: 582247853}
+    - rid: 7878078082222915828
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6831598500526417664
+          m_Value1: 12685099305665101033
+        Name: Walk Speed
+        m_Value: 5
+    - rid: 7878078082222915829
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14517356554424051913
+          m_Value1: 18409518768425054484
+        Name: Chase Speed
+        m_Value: 5
+    - rid: 7878078082222916163
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 9861922886476345448
+          m_Value1: 12605510942691988153
+        Name: Chase Delay
+        m_Value: 0.5
 --- !u!195 &6776616835992277267
 NavMeshAgent:
   m_ObjectHideFlags: 0
