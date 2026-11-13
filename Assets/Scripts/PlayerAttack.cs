@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AttackScript : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     // Fields
 
@@ -68,7 +68,7 @@ public class AttackScript : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             // ...get damaged
-            throw new NotImplementedException("Player should be damaged/killed by an enemy now.");
+            GameManager.RestartGame();
         }
     }
 }

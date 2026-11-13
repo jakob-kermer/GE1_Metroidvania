@@ -34,11 +34,6 @@ public class GameManager : MonoBehaviour
         restart.action.Disable();
     }
 
-    private void OnRestart(InputAction.CallbackContext context)
-    {
-        RestartGame();
-    }
-
     private void OnPause(InputAction.CallbackContext context)
     {
         if (Time.timeScale == 0f)
@@ -51,17 +46,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void PauseGame()
+    private void OnRestart(InputAction.CallbackContext context)
+    {
+        RestartGame();
+    }
+
+    private static void PauseGame()
     {
         Time.timeScale = 0f;
     }
 
-    private void ResumeGame()
+    private static void ResumeGame()
     {
         Time.timeScale = 1f;
     }
 
-    private void RestartGame()
+    public static void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
