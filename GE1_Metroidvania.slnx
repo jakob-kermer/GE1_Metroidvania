@@ -79,6 +79,7 @@
   <Project Path="Unity.VisualScripting.Shared.Editor.csproj" />
   <Project Path="Unity.AppUI.Redux.Editor.csproj" />
   <Project Path="Unity.AppUI.Undo.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.InputSystem.ForUI.Editor.csproj" />
   <Project Path="Unity.CollabProxy.Editor.csproj" />
   <Project Path="Unity.TerrainTools.csproj" />
@@ -86,7 +87,6 @@
   <Project Path="Unity.Behavior.Editor.csproj" />
   <Project Path="Unity.Behavior.Serialization.Editor.csproj" />
   <Project Path="Unity.InternalAPIEngineBridge.004.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.InputSystem.DocCodeSamples.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.Shaders.csproj" />
   <Project Path="Unity.RenderPipelines.Core.Runtime.Shared.csproj" />
@@ -137,10 +137,10 @@
   <Project Path="Unity.AI.Navigation.Player.csproj" />
   <Project Path="Unity.InputSystem.TestFramework.Player.csproj" />
   <Project Path="Unity.AppUI.Undo.Player.csproj" />
+  <Project Path="Assembly-CSharp.Player.csproj" />
   <Project Path="Unity.TerrainTools.Player.csproj" />
   <Project Path="Unity.RenderPipeline.Universal.ShaderLibrary.Player.csproj" />
   <Project Path="Unity.InternalAPIEngineBridge.004.Player.csproj" />
-  <Project Path="Assembly-CSharp.Player.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.Shaders.Player.csproj" />
   <Project Path="Unity.RenderPipelines.Core.Runtime.Shared.Player.csproj" />
   <Project Path="Unity.ProBuilder.Stl.Player.csproj" />

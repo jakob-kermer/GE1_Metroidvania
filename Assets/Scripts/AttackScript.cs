@@ -8,13 +8,14 @@ public class AttackScript : MonoBehaviour
 {
     // Fields
 
+    // Input
     [Header("Input actions")]
     [SerializeField] private InputActionReference attack;
-    [SerializeField] private float attackDuration;
 
     // Attack stats
     [Header("Attack stats")]
     [SerializeField] private Collider hitbox;
+    [SerializeField] private float attackDuration;
 
     private void OnEnable()
     {
@@ -63,8 +64,10 @@ public class AttackScript : MonoBehaviour
     {
         Debug.Log($"I collided with {collision.gameObject.name}");
 
+        // if a game object with the tag "Enemy" collides with this one...
         if (collision.gameObject.tag == "Enemy")
         {
+            // ...get damaged
             throw new NotImplementedException("Player should be damaged/killed by an enemy now.");
         }
     }
