@@ -36431,6 +36431,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1866206643}
     m_Modifications:
+    - target: {fileID: 4024777445733618398, guid: e953aa7dd4529de4095d9177a849a516, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1747579042}
     - target: {fileID: 4038452513393792425, guid: e953aa7dd4529de4095d9177a849a516, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -36515,6 +36519,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7658648398151505258, guid: e953aa7dd4529de4095d9177a849a516, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1747579042}
+    - target: {fileID: 8045301888070105038, guid: e953aa7dd4529de4095d9177a849a516, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1747579042}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36612,6 +36624,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7666589283455637608, guid: 5c64ba911d90e89478bf4e4664c5ecfa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1747579042}
+    - target: {fileID: 7872551489341013493, guid: 5c64ba911d90e89478bf4e4664c5ecfa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1747579042}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

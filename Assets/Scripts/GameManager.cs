@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     private void PauseGame()
     {
+        Debug.Log("Game paused");
+        
         // stop time
         Time.timeScale = 0f;
 
@@ -67,17 +69,21 @@ public class GameManager : MonoBehaviour
         pauseScreen.SetActive(true);
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
-        // reset time
-        Time.timeScale = 1f;
-
+        Debug.Log("Game resumed");
+        
         // stop showing pause screen
         pauseScreen.SetActive(false);
+
+        // reset time
+        Time.timeScale = 1f;
     }
 
     public void RestartGame()
     {
+        Debug.Log("Game restarted");
+        
         // restart current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
@@ -87,6 +93,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Debug.Log("Game over");
+        
         // stop taking in pause input action
         pause.action.performed -= OnPause;
         pause.action.Disable();
@@ -100,6 +108,8 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
+        Debug.Log("Game quit");
+        
         // quit game
         Application.Quit();
     }
