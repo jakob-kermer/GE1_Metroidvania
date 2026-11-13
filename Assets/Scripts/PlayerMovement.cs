@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 1.1f;
     [SerializeField] private LayerMask groundLayer;
 
-    void OnEnable()
+    private void OnEnable()
     {
         // enable input actions
         move.action.Enable();
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         jump.action.performed += OnJump;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         // stop listening to jump action
         jump.action.performed -= OnJump;
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         jump.action.Disable();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         // check every frame if the character is grounded
         if (IsGrounded())
