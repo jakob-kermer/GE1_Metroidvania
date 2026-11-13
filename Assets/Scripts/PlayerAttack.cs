@@ -8,6 +8,9 @@ public class PlayerAttack : MonoBehaviour
 {
     // Fields
 
+    // GameManager
+    [SerializeField] private GameManager gameManager;
+
     // Input
     [Header("Input actions")]
     [SerializeField] private InputActionReference attack;
@@ -60,15 +63,16 @@ public class PlayerAttack : MonoBehaviour
         hitbox.enabled = false;
     }
 
+    // colliding with enemy
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log($"I collided with {collision.gameObject.name}");
 
-        // if a game object with the tag "Enemy" collides with this one...
+        // if a game object with the tag "Enemy" collides with the player...
         if (collision.gameObject.tag == "Enemy")
         {
-            // ...get damaged
-            GameManager.RestartGame();
+            // ...get a game over
+            gameManager.GameOver();
         }
     }
 }
