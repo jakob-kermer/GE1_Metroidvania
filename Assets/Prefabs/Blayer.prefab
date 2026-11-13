@@ -278,7 +278,10 @@ GameObject:
   - component: {fileID: 3258329943310376911}
   - component: {fileID: 5953863775815870787}
   - component: {fileID: 3817140577183146646}
+  - component: {fileID: 187798345824759077}
   - component: {fileID: 5780169091077155421}
+  - component: {fileID: 5508007902294203309}
+  - component: {fileID: 9153198200722217156}
   m_Layer: 0
   m_Name: Blayer
   m_TagString: Player
@@ -408,8 +411,28 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 88
   m_CollisionDetection: 0
+--- !u!114 &187798345824759077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486042749050402055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!114 &5780169091077155421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,8 +448,8 @@ MonoBehaviour:
   rb: {fileID: 3817140577183146646}
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  speed: 7
-  jumpForce: 15
+  speed: 8
+  jumpForce: 16
   doubleJumpForce: 12
   doubleJumpUnlocked: 0
   canDoubleJump: 1
@@ -434,3 +457,39 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5508007902294203309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486042749050402055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35c24632fccbc145b2ca698ea161851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  attack: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  hitbox: {fileID: 9153198200722217156}
+  attackDuration: 0.5
+--- !u!65 &9153198200722217156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486042749050402055}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 5, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
