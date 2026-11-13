@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 1.1f;
     [SerializeField] private LayerMask groundLayer;
 
+    // Animator 
+    [SerializeField] private Animator animator; 
+
     private void OnEnable()
     {
         // enable input actions
@@ -55,6 +58,12 @@ public class PlayerMovement : MonoBehaviour
         {
             // if yes, enable double jumping again
             canDoubleJump = true;
+            animator.SetBool("IsFalling", false);
+        }
+
+        if (rb.linearVelocity.y < 0)
+        {
+            animator.SetBool("IsFalling", true); 
         }
 
         // movement
@@ -74,6 +83,15 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity.y,
             rb.linearVelocity.z
         );
+
+        if (input.x != 0)
+        {
+            animator.SetBool("IsRunning", true); 
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false); 
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -97,6 +115,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // add upwards force to jump
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        animator.SetTrigger("JumpTrigger"); 
     }
 
     private void DoubleJump()
