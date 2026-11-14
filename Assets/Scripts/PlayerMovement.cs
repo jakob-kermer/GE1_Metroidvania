@@ -23,6 +23,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool doubleJumpUnlocked;
     [SerializeField] private bool canDoubleJump;
 
+    // Property for access in DoubleJumpChest.cs
+    public bool DoubleJumpUnlocked
+    {
+        get { return doubleJumpUnlocked; }
+        set { this.doubleJumpUnlocked = value; }
+    }
+
     // Raycast
     [Header("Ground checking raycast")]
     [SerializeField] private float groundCheckDistance = 1.1f;
