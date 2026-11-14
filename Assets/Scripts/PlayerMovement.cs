@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     // Animator 
-    [SerializeField] private Animator animator; 
+    [Header("Animation stuff")]
+    [SerializeField] private Animator animator;
 
     // Player Model
     [SerializeField] private GameObject playerModel;
@@ -65,9 +66,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Touching Ground", true);
         }
 
+        // if the player is moving downwards...
         if (rb.linearVelocity.y < 0)
         {
-            animator.SetBool("IsFalling", true); 
+            // ...the player is falling and not touching the ground
+            animator.SetBool("IsFalling", true);
             animator.SetBool("Touching Ground", false);
         }
 
@@ -89,22 +92,19 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity.z
         );
 
+        // if the player is moving in any direction...
         if (input.x != 0)
         {
-            animator.SetBool("IsRunning", true); 
+            // ...the player is running (duh)...
+            animator.SetBool("IsRunning", true);
+            // ...and rotate the player in movement direction
+            playerModel.transform.rotation = Quaternion.LookRotation(input);
         }
+        // otherwise...
         else
         {
-            animator.SetBool("IsRunning", false); 
-        }
-
-        if (input.x < 0)
-        {
-            playerModel.transform.rotation = Quaternion.LookRotation(input);
-        }
-        if (input.x > 0)
-        {
-            playerModel.transform.rotation = Quaternion.LookRotation(input);
+            // ...the player is running (duh)
+            animator.SetBool("IsRunning", false);
         }
     }
 
@@ -132,9 +132,9 @@ public class PlayerMovement : MonoBehaviour
         // add upwards force to jump
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
+        // set animation parameters
         animator.SetBool("Touching Ground", false);
-
-        animator.SetTrigger("JumpTrigger"); 
+        animator.SetTrigger("JumpTrigger");
     }
 
     private void DoubleJump()
@@ -148,8 +148,8 @@ public class PlayerMovement : MonoBehaviour
         // add upwards force to jump
         rb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
 
-        animator.SetBool("Touching Ground", false); 
-
+        // set animation parameters
+        animator.SetBool("Touching Ground", false);
         animator.SetTrigger("JumpTrigger");
     }
 

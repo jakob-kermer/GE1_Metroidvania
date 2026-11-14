@@ -17,7 +17,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Collider hitbox;
     [SerializeField] private float attackDuration;
 
-    // Animator 
+    // Animator
+    [Header("Animation stuff")]
     [SerializeField] private Animator animator;
 
     private void OnEnable()
@@ -53,10 +54,10 @@ public class PlayerAttack : MonoBehaviour
         // enable the hitbox collider
         hitbox.enabled = true;
 
-        // attack
+        // write attack message on the console
         Debug.Log("I'm attacking rn");
 
-        // animation
+        // set animation parameter
         animator.SetTrigger("HitIt");
 
         // wait for some time
