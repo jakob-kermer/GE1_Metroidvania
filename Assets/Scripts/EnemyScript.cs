@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     // Fields
-
     [Header("Gizmo distances")]
     [SerializeField] private float chaseDistance;
     [SerializeField] private float attackDistance;
