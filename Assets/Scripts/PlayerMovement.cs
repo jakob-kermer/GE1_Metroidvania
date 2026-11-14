@@ -62,11 +62,13 @@ public class PlayerMovement : MonoBehaviour
             // if yes, enable double jumping again
             canDoubleJump = true;
             animator.SetBool("IsFalling", false);
+            animator.SetBool("Touching Ground", true);
         }
 
         if (rb.linearVelocity.y < 0)
         {
             animator.SetBool("IsFalling", true); 
+            animator.SetBool("Touching Ground", false);
         }
 
         // movement
@@ -129,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
         // add upwards force to jump
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
+        animator.SetBool("Touching Ground", false);
+
         animator.SetTrigger("JumpTrigger"); 
     }
 
@@ -142,6 +146,10 @@ public class PlayerMovement : MonoBehaviour
         );
         // add upwards force to jump
         rb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
+
+        animator.SetBool("Touching Ground", false); 
+
+        animator.SetTrigger("JumpTrigger");
     }
 
     private bool IsGrounded()
