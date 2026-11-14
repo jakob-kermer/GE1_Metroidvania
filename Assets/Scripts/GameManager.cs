@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject winScreen;
 
     private void OnEnable()
     {
@@ -104,6 +105,21 @@ public class GameManager : MonoBehaviour
 
         // show game over screen
         gameOverScreen.SetActive(true);
+    }
+
+    public void GameWon()
+    {
+        Debug.Log("Game won");
+        
+        // stop taking in pause input action
+        pause.action.performed -= OnPause;
+        pause.action.Disable();
+
+        // stop time
+        Time.timeScale = 0f;
+
+        // show win screen
+        winScreen.SetActive(true);
     }
 
     public void QuitGame()

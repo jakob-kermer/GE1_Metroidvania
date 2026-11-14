@@ -23,6 +23,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool doubleJumpUnlocked;
     [SerializeField] private bool canDoubleJump;
 
+    // Property for access in DoubleJumpChest.cs
+    public bool DoubleJumpUnlocked
+    {
+        get { return doubleJumpUnlocked; }
+        set { this.doubleJumpUnlocked = value; }
+    }
+
     // Raycast
     [Header("Ground checking raycast")]
     [SerializeField] private float groundCheckDistance = 1.1f;
@@ -62,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
             // if yes, enable double jumping again
             canDoubleJump = true;
             animator.SetBool("IsFalling", false);
-            animator.SetBool("Touching Ground", true);
         }
 
         // if the player is moving downwards...
@@ -70,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         {
             // ...the player is falling and not touching the ground
             animator.SetBool("IsFalling", true);
-            animator.SetBool("Touching Ground", false);
         }
 
         // movement
@@ -132,7 +137,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
         // set animation parameters
-        animator.SetBool("Touching Ground", false);
         animator.SetTrigger("JumpTrigger");
     }
 
@@ -148,7 +152,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
 
         // set animation parameters
-        animator.SetBool("Touching Ground", false);
         animator.SetTrigger("JumpTrigger");
     }
 
