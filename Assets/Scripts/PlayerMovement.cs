@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Movement
     [Header("Movement speed")]
     [SerializeField] private float speed;
-    
+
     // Jump logic
     [Header("Jump stats")]
     [SerializeField] private float jumpForce;
@@ -27,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground checking raycast")]
     [SerializeField] private float groundCheckDistance = 1.1f;
     [SerializeField] private LayerMask groundLayer;
+
+    // Animator 
+    [Header("Animation stuff")]
+    [SerializeField] private Animator animator;
+    // Player Model
+    [SerializeField] private GameObject playerModel;
 
     private void OnEnable()
     {
@@ -55,6 +61,16 @@ public class PlayerMovement : MonoBehaviour
         {
             // if yes, enable double jumping again
             canDoubleJump = true;
+            animator.SetBool("IsFalling", false);
+            animator.SetBool("Touching Ground", true);
+        }
+
+        // if the player is moving downwards...
+        if (rb.linearVelocity.y < 0)
+        {
+            // ...the player is falling and not touching the ground
+            animator.SetBool("IsFalling", true);
+            animator.SetBool("Touching Ground", false);
         }
 
         // movement
@@ -74,6 +90,21 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity.y,
             rb.linearVelocity.z
         );
+
+        // if the player is moving in any direction...
+        if (input.x != 0)
+        {
+            // ...the player is running (duh)...
+            animator.SetBool("IsRunning", true);
+            // ...and rotate the player in movement direction
+            playerModel.transform.rotation = Quaternion.LookRotation(input);
+        }
+        // otherwise...
+        else
+        {
+            // ...the player is running (duh)
+            animator.SetBool("IsRunning", false);
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -91,12 +122,18 @@ public class PlayerMovement : MonoBehaviour
             DoubleJump();
             canDoubleJump = false;
         }
+
+
     }
 
     private void Jump()
     {
         // add upwards force to jump
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        // set animation parameters
+        animator.SetBool("Touching Ground", false);
+        animator.SetTrigger("JumpTrigger");
     }
 
     private void DoubleJump()
@@ -109,6 +146,10 @@ public class PlayerMovement : MonoBehaviour
         );
         // add upwards force to jump
         rb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
+
+        // set animation parameters
+        animator.SetBool("Touching Ground", false);
+        animator.SetTrigger("JumpTrigger");
     }
 
     private bool IsGrounded()
