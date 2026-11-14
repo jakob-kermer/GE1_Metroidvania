@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 9201182184611082669}
   - component: {fileID: 3529568214731095969}
   - component: {fileID: 4006566877650405407}
+  - component: {fileID: 2973586686287312000}
+  - component: {fileID: 8789445661719846925}
+  - component: {fileID: 5534127120635530790}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -138,7 +141,137 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!195 &2973586686287312000
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9165378104927051646}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &8789445661719846925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9165378104927051646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
+  m_Graph: {fileID: 2641997237268961829, guid: 8adefdd5dd472cc4e89763072ea6562f, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 7878077927868596798
+  - rid: 7878077927868596799
+  - rid: 7878077927868596800
+  - rid: 7878077927868596801
+  - rid: 7878077927868596802
+  - rid: 7878078082222915828
+  - rid: 7878078082222915829
+  - rid: 7878078082222916163
+  m_OriginalGraph: {fileID: 0}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7878077927868596798
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 9165378104927051646}
+    - rid: 7878077927868596799
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5516172290446481902
+          m_Value1: 2384094610347627098
+        Name: Target
+        m_Value: {fileID: 0}
+    - rid: 7878077927868596800
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3590862647103139714
+          m_Value1: 4175421197340876610
+        Name: Chase Distance
+        m_Value: 5
+    - rid: 7878077927868596801
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3108098748889603114
+          m_Value1: 9994648521905778752
+        Name: Attack Distance
+        m_Value: 1
+    - rid: 7878077927868596802
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 7045024210591429772
+          m_Value1: 5184374947313252902
+        Name: Waypoints
+        m_Value:
+        - {fileID: 0}
+        - {fileID: 0}
+    - rid: 7878078082222915828
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6831598500526417664
+          m_Value1: 12685099305665101033
+        Name: Walk Speed
+        m_Value: 3
+    - rid: 7878078082222915829
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14517356554424051913
+          m_Value1: 18409518768425054484
+        Name: Chase Speed
+        m_Value: 5
+    - rid: 7878078082222916163
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 9861922886476345448
+          m_Value1: 12605510942691988153
+        Name: Chase Delay
+        m_Value: 0.5
+--- !u!114 &5534127120635530790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9165378104927051646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587ac7552da34a747aca8c9c59df7e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  chaseDistance: 5
+  attackDistance: 1
