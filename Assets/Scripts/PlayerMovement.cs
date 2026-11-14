@@ -28,6 +28,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 1.1f;
     [SerializeField] private LayerMask groundLayer;
 
+    // Animator 
+    [SerializeField] private Animator animator; 
+
+    // Player Model
+    [SerializeField] private GameObject playerModel;
+
     private void OnEnable()
     {
         // enable input actions
@@ -55,6 +61,14 @@ public class PlayerMovement : MonoBehaviour
         {
             // if yes, enable double jumping again
             canDoubleJump = true;
+            animator.SetBool("IsFalling", false);
+            animator.SetBool("Touching Ground", true);
+        }
+
+        if (rb.linearVelocity.y < 0)
+        {
+            animator.SetBool("IsFalling", true); 
+            animator.SetBool("Touching Ground", false);
         }
 
         // movement
@@ -74,6 +88,24 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity.y,
             rb.linearVelocity.z
         );
+
+        if (input.x != 0)
+        {
+            animator.SetBool("IsRunning", true); 
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false); 
+        }
+
+        if (input.x < 0)
+        {
+            playerModel.transform.rotation = Quaternion.LookRotation(input);
+        }
+        if (input.x > 0)
+        {
+            playerModel.transform.rotation = Quaternion.LookRotation(input);
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -91,12 +123,18 @@ public class PlayerMovement : MonoBehaviour
             DoubleJump();
             canDoubleJump = false;
         }
+
+        
     }
 
     private void Jump()
     {
         // add upwards force to jump
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        animator.SetBool("Touching Ground", false);
+
+        animator.SetTrigger("JumpTrigger"); 
     }
 
     private void DoubleJump()
@@ -109,6 +147,10 @@ public class PlayerMovement : MonoBehaviour
         );
         // add upwards force to jump
         rb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
+
+        animator.SetBool("Touching Ground", false); 
+
+        animator.SetTrigger("JumpTrigger");
     }
 
     private bool IsGrounded()
