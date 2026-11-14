@@ -6,9 +6,9 @@ public class EnemyScript : MonoBehaviour
 {
     // Fields
 
+    [Header("Gizmo distances")]
     [SerializeField] private float chaseDistance;
     [SerializeField] private float attackDistance;
-
 
     private void OnTriggerEnter(Collider other)
     {
