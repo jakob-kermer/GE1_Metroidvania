@@ -15,10 +15,12 @@ public class PlayerAttack : MonoBehaviour
     // Attack stats
     [Header("Attack stats")]
     [SerializeField] private Collider hitbox;
+    [SerializeField] private float attackDelay;
     [SerializeField] private float attackDuration;
 
-    // Animator 
-    [SerializeField] private Animator animator; 
+    // Animator
+    [Header("Animation stuff")]
+    [SerializeField] private Animator animator;
 
     private void OnEnable()
     {
@@ -50,12 +52,17 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator Attack()
     {
+        // set animation parameter
+        animator.SetTrigger("HitIt");
+
+        // wait for some time
+        yield return new WaitForSeconds(attackDelay);
+
         // enable the hitbox collider
         hitbox.enabled = true;
 
-        // attack
+        // write attack message on the console
         Debug.Log("I'm attacking rn");
-        animator.SetTrigger("HitIt");
 
         // wait for some time
         yield return new WaitForSeconds(attackDuration);
