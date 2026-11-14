@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Movement
     [Header("Movement speed")]
     [SerializeField] private float speed;
-    
+
     // Jump logic
     [Header("Jump stats")]
     [SerializeField] private float jumpForce;
@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     // Animator 
     [Header("Animation stuff")]
     [SerializeField] private Animator animator;
-
     // Player Model
     [SerializeField] private GameObject playerModel;
 
@@ -124,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
             canDoubleJump = false;
         }
 
-        
+
     }
 
     private void Jump()
