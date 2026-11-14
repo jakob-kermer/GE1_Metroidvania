@@ -8,9 +8,6 @@ public class PlayerAttack : MonoBehaviour
 {
     // Fields
 
-    // GameManager
-    [SerializeField] private GameManager gameManager;
-
     // Input
     [Header("Input actions")]
     [SerializeField] private InputActionReference attack;
@@ -19,6 +16,9 @@ public class PlayerAttack : MonoBehaviour
     [Header("Attack stats")]
     [SerializeField] private Collider hitbox;
     [SerializeField] private float attackDuration;
+
+    // Animator 
+    [SerializeField] private Animator animator; 
 
     private void OnEnable()
     {
@@ -55,24 +55,12 @@ public class PlayerAttack : MonoBehaviour
 
         // attack
         Debug.Log("I'm attacking rn");
+        animator.SetTrigger("HitIt");
 
         // wait for some time
         yield return new WaitForSeconds(attackDuration);
 
         // disable the hitbox collider again
         hitbox.enabled = false;
-    }
-
-    // colliding with enemy
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log($"I collided with {collision.gameObject.name}");
-
-        // if a game object with the tag "Enemy" collides with the player...
-        if (collision.gameObject.tag == "Enemy")
-        {
-            // ...get a game over
-            gameManager.GameOver();
-        }
     }
 }
