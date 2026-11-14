@@ -1,4 +1,4 @@
-﻿<Solution>
+<Solution>
   <Project Path="Unity.Timeline.csproj" />
   <Project Path="Unity.InputSystem.csproj" />
   <Project Path="Unity.RenderPipelines.GPUDriven.Runtime.csproj" />
@@ -60,6 +60,8 @@
   <Project Path="Unity.PlasticSCM.Editor.Assistant.csproj" />
   <Project Path="Unity.AI.Navigation.Editor.csproj" />
   <Project Path="Unity.AppUI.MVVM.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.Muse.Behavior.csproj" />
   <Project Path="Unity.Multiplayer.Center.Common.csproj" />
   <Project Path="Unity.Behavior.SerializableGUID.csproj" />
@@ -79,7 +81,6 @@
   <Project Path="Unity.VisualScripting.Shared.Editor.csproj" />
   <Project Path="Unity.AppUI.Redux.Editor.csproj" />
   <Project Path="Unity.AppUI.Undo.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.InputSystem.ForUI.Editor.csproj" />
   <Project Path="Unity.CollabProxy.Editor.csproj" />
   <Project Path="Unity.TerrainTools.csproj" />
@@ -129,6 +130,7 @@
   <Project Path="Unity.VisualScripting.State.Player.csproj" />
   <Project Path="Unity.AppUI.TextMateLib.Player.csproj" />
   <Project Path="Unity.AppUI.MVVM.Player.csproj" />
+  <Project Path="Assembly-CSharp.Player.csproj" />
   <Project Path="Unity.Muse.Behavior.Player.csproj" />
   <Project Path="Unity.Multiplayer.Center.Common.Player.csproj" />
   <Project Path="Unity.Behavior.SerializableGUID.Player.csproj" />
@@ -137,7 +139,6 @@
   <Project Path="Unity.AI.Navigation.Player.csproj" />
   <Project Path="Unity.InputSystem.TestFramework.Player.csproj" />
   <Project Path="Unity.AppUI.Undo.Player.csproj" />
-  <Project Path="Assembly-CSharp.Player.csproj" />
   <Project Path="Unity.TerrainTools.Player.csproj" />
   <Project Path="Unity.RenderPipeline.Universal.ShaderLibrary.Player.csproj" />
   <Project Path="Unity.InternalAPIEngineBridge.004.Player.csproj" />
