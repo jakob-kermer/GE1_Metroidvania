@@ -209,6 +209,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3096038017919858054, guid: 3297a7eafe03b8342ba14b6e838085cc, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1747579042}
     - target: {fileID: 5812775571619309523, guid: 3297a7eafe03b8342ba14b6e838085cc, type: 3}
       propertyPath: m_Name
       value: Spikes (3)
@@ -14311,6 +14315,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3096038017919858054, guid: 3297a7eafe03b8342ba14b6e838085cc, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1747579042}
     - target: {fileID: 5812775571619309523, guid: 3297a7eafe03b8342ba14b6e838085cc, type: 3}
       propertyPath: m_Name
       value: Spikes (2)
@@ -28265,6 +28273,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3096038017919858054, guid: 3297a7eafe03b8342ba14b6e838085cc, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1747579042}
     - target: {fileID: 4165743207427647648, guid: 3297a7eafe03b8342ba14b6e838085cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -32389,6 +32401,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -7.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3096038017919858054, guid: 3297a7eafe03b8342ba14b6e838085cc, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1747579042}
     - target: {fileID: 4165743207427647648, guid: 3297a7eafe03b8342ba14b6e838085cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5
