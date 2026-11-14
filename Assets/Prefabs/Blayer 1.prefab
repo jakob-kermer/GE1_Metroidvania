@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4000301028128964310}
   - component: {fileID: 6813710244822404659}
   - component: {fileID: 5898557532507554097}
+  - component: {fileID: -5511521408620979406}
+  - component: {fileID: 6425429480361052457}
   m_Layer: 0
   m_Name: Blayer 1
   m_TagString: Player
@@ -170,6 +172,45 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 4294967295
+  animator: {fileID: 0}
+  playerModel: {fileID: 0}
+--- !u!114 &-5511521408620979406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440102719644813604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35c24632fccbc145b2ca698ea161851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  attack: {fileID: 0}
+  hitbox: {fileID: 6425429480361052457}
+  attackDuration: 0.5
+  animator: {fileID: 0}
+--- !u!65 &6425429480361052457
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440102719644813604}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5418771701453152932
 GameObject:
   m_ObjectHideFlags: 0
