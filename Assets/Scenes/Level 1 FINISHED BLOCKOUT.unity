@@ -18862,6 +18862,16 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &827000153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4763560922801653429, guid: efd7364cc0bcecc4f861235f8d61a55b, type: 3}
+  m_PrefabInstance: {fileID: 1398393620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &827000156 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2283444942171522677, guid: efd7364cc0bcecc4f861235f8d61a55b, type: 3}
+  m_PrefabInstance: {fileID: 1398393620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &827965472
 Mesh:
   m_ObjectHideFlags: 0
@@ -34028,6 +34038,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 162162458602528888, guid: efd7364cc0bcecc4f861235f8d61a55b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 827000156}
+    - target: {fileID: 162162458602528888, guid: efd7364cc0bcecc4f861235f8d61a55b, type: 3}
+      propertyPath: attackDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651159347540575029, guid: efd7364cc0bcecc4f861235f8d61a55b, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -34076,6 +34094,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blayer Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6924525553451448955, guid: efd7364cc0bcecc4f861235f8d61a55b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 827000156}
+    - target: {fileID: 6924525553451448955, guid: efd7364cc0bcecc4f861235f8d61a55b, type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 827000153}
     - target: {fileID: 7559449818313634403, guid: efd7364cc0bcecc4f861235f8d61a55b, type: 3}
       propertyPath: m_Enabled
       value: 0
